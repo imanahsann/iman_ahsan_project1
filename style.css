@@ -122,6 +122,16 @@ nav li {
     text-shadow: 1px 1px 0 #bcbcbc;
 }
 
+/* Toggle Bar Nav */
+
+input#toggle {
+	display: none;
+}
+
+label[for="toggle"] {
+        display: none;
+}
+
 /* Hero */
 
 .hero {
@@ -348,11 +358,6 @@ footer a:hover {
     padding-left: 20px;
 }
 
-.columnNarrow p {
-    margin: 0;
-    padding: 0;
-}
-
 .columnWide p {
     margin-top: 0;
 }
@@ -454,13 +459,21 @@ footer a:hover {
 }
 
 @media (max-width: 670px) {
+    .columnWide {
+        float: left;
+    }
+
+    .columnNarrow {
+        float: right;
+    }
+
     .columnNarrow, .columnWide {
         width: 100%;
         text-align: center;
         clear: both;
     }
 
-    .footer1 li {
+    .columnNarrow li {
         display: inline-block;
     }
 
@@ -472,14 +485,62 @@ footer a:hover {
         content: none;
     }
 
-    .columnNarrow p {
-        float: left;
+    .footer3 li::after {
+        content: ', ';
     }
 
-    .columnNarrow p::after {
-        content: ', '
+    .footer3 li:last-child::after {
+        content: none;
     }
-}
+
+    .navButton {
+        width: 100%;
+    }
+
+    .hero nav {
+        display: none;
+    }
+
+    .bar nav {
+        float: none;
+        position: absolute;
+        z-index: 10;
+        width: 20%;
+        right: -20%;
+        height: 100%;
+        top: 0;
+        transition: all 0.3s;
+        font-size: 3rem;
+        padding: 0;
+    }
+
+    .bar nav a {
+        text-decoration: none;
+        text-transform: uppercase;
+        display: block;
+        padding: 10px;
+        transition: all 0.3s;
+    }
+
+    input#toggle:checked + .bar nav {
+        right: 0;
+    }
+
+    label[for="toggle"] {
+        display: block;
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        font-size: 4rem;
+        text-shadow: 1px 1px 1px white;
+        cursor: pointer;
+    }
+
+    .navButton {
+        float: left;
+        width: 100%;
+        padding-bottom: 40px;
+    }
 
 @media (max-width: 400px) {
 
